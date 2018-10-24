@@ -10,7 +10,7 @@ async function bundle(input, outputFile, pluginOptions = {}) {
 
   const result = await rollup({
     input,
-    plugins: [ plugin ]
+    plugins: [plugin]
   })
 
   await result.write({
@@ -28,13 +28,9 @@ test("Plain", async () => {
 
   await bundle("./__tests__/fixtures/plain.js", outputFile)
 
-  await Promise.all([
-    expect(fs.pathExists(outputFile)).resolves.toBeTruthy()
-  ])
+  await Promise.all([expect(fs.pathExists(outputFile)).resolves.toBeTruthy()])
 
-  await Promise.all([
-    fs.remove(outputFile)
-  ])
+  await Promise.all([fs.remove(outputFile)])
 })
 
 test("Assets", async () => {
@@ -144,6 +140,23 @@ test("Outside Asset Source Location", async () => {
     fs.remove(cssFileMap),
     fs.remove(cssFont)
   ])
+})
+
+test("Asset source location when importer is deep", async () => {
+  const outputFile = `${outputFolder}/importer-within/index.js`
+  const imageFile = `${outputFolder}/importer-within/ceBqZEDY.gif`
+  const imageFileImport = `import blankUrl from './ceBqZEDY.gif'`
+
+  await bundle("./__tests__/fixtures/deep/assets-importer-within.js", outputFile)
+
+  await Promise.all([
+    expect(fs.pathExists(imageFile)).resolves.toBeTruthy(),
+    fs.readFile(outputFile, "utf-8").then((content) => {
+      expect(content).toEqual(expect.stringContaining(imageFileImport))
+    })
+  ])
+
+  await Promise.all([fs.remove(outputFile), fs.remove(imageFile)])
 })
 
 test("Mixed Asset Source Locations", async () => {
