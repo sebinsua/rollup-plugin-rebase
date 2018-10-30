@@ -49,6 +49,7 @@
     "@babel/runtime": "^7.0.0",
     "asset-hash": "^2.2.4",
     "core-js": "^2.5.7",
+    "dot-slash": "^1.1.0",
     "fs-extra": "^7.0.0",
     "postcss": "^7.0.2",
     "postcss-import": "^12.0.0",

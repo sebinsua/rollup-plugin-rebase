@@ -1,5 +1,6 @@
 /* eslint-disable filenames/match-exported */
 import path from "path"
+import dotSlash from "dot-slash"
 import fs from "fs-extra"
 import postcss from "postcss"
 import postcssImport from "postcss-import"
@@ -66,6 +67,7 @@ async function processStyle(id, fileDest, keepName) {
 export default function rebase(options = {}) {
   const { include, exclude = defaultExclude, verbose = false, keepName = false, folder = "" } = options
 
+  let baseDir
   const filter = createFilter(include, exclude)
   const wrappers = {}
   const assets = {}
@@ -73,6 +75,26 @@ export default function rebase(options = {}) {
 
   return {
     name: "rollup-plugin-rebase",
+
+    options(options) {
+      let inputs = []
+      if (typeof options.input === 'string') {
+        inputs = [options.input]
+      } else if (Array.isArray(options.input)) {
+        inputs = options.input
+      } else if (typeof options.input === 'object') {
+        inputs = Object.values(options.input)
+      } else {
+        throw new Error('The options#input passed into rollup-plugin-rebase was neither a string, array or object.')
+      }
+
+      for (const input of inputs) {
+        const potentialBaseDir = path.dirname(input)
+        if (typeof baseDir === 'undefined' || potentialBaseDir.length < baseDir.length) {
+          baseDir = potentialBaseDir
+        }
+      }
+    },
 
     /* eslint-disable complexity, max-statements */
     async resolveId(importee, importer) {
@@ -105,13 +127,15 @@ export default function rebase(options = {}) {
       const fileHash = await getHash(fileSource)
       const fileTarget = keepName ? `${fileName}_${fileHash}${fileExt}` : `${fileHash}${fileExt}`
 
+      const targetPath = dotSlash.enforce(path.join(baseDir, folder, fileTarget))
+      
       // Registering for our copying job when the bundle is created (kind of a job queue)
       // and respect any sub folder given by the configuration options.
-      files[fileSource] = path.join(folder, fileTarget)
+      files[fileSource] = targetPath
 
       // Replacing slashes for Windows, as we need to use POSIX style to be compat
       // to Rollup imports / NodeJS resolve implementation.
-      const assetId = path.join(path.dirname(importer), folder, fileTarget).replace(/\\/g, "/")
+      const assetId = targetPath.replace(/\\/g, "/")
       const resolvedId = `${assetId}.js`
 
       // Register asset for exclusion handling in this function.

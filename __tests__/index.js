@@ -36,12 +36,12 @@ test("Plain", async () => {
 test("Assets", async () => {
   const outputFile = `${outputFolder}/hashing-basics/index.js`
 
-  const imageFile = `${outputFolder}/hashing-basics/bAFTozQS.png`
-  const fontFile = `${outputFolder}/hashing-basics/cVoexIsj.woff`
-  const deepFile = `${outputFolder}/hashing-basics/ceBqZEDY.gif`
-  const cssFile = `${outputFolder}/hashing-basics/vAjnOYXZ.css`
-  const cssFileMap = `${outputFolder}/hashing-basics/vAjnOYXZ.css.map`
-  const cssFont = `${outputFolder}/hashing-basics/dRqwXHnd.woff`
+  const imageFile = `${outputFolder}/hashing-basics/__tests__/fixtures/bAFTozQS.png`
+  const fontFile = `${outputFolder}/hashing-basics/__tests__/fixtures/cVoexIsj.woff`
+  const deepFile = `${outputFolder}/hashing-basics/__tests__/fixtures/ceBqZEDY.gif`
+  const cssFile = `${outputFolder}/hashing-basics/__tests__/fixtures/vAjnOYXZ.css`
+  const cssFileMap = `${outputFolder}/hashing-basics/__tests__/fixtures/vAjnOYXZ.css.map`
+  const cssFont = `${outputFolder}/hashing-basics/__tests__/fixtures/dRqwXHnd.woff`
 
   await bundle("./__tests__/fixtures/assets.js", outputFile)
 
@@ -71,12 +71,12 @@ test("Assets", async () => {
 test("Assets written to subfolder", async () => {
   const outputFile = `${outputFolder}/output-subfolder/index.js`
 
-  const imageFile = `${outputFolder}/output-subfolder/static/bAFTozQS.png`
-  const fontFile = `${outputFolder}/output-subfolder/static/cVoexIsj.woff`
-  const deepFile = `${outputFolder}/output-subfolder/static/ceBqZEDY.gif`
-  const cssFile = `${outputFolder}/output-subfolder/static/vAjnOYXZ.css`
-  const cssFileMap = `${outputFolder}/output-subfolder/static/vAjnOYXZ.css.map`
-  const cssFont = `${outputFolder}/output-subfolder/static/dRqwXHnd.woff`
+  const imageFile = `${outputFolder}/output-subfolder/__tests__/fixtures/static/bAFTozQS.png`
+  const fontFile = `${outputFolder}/output-subfolder/__tests__/fixtures/static/cVoexIsj.woff`
+  const deepFile = `${outputFolder}/output-subfolder/__tests__/fixtures/static/ceBqZEDY.gif`
+  const cssFile = `${outputFolder}/output-subfolder/__tests__/fixtures/static/vAjnOYXZ.css`
+  const cssFileMap = `${outputFolder}/output-subfolder/__tests__/fixtures/static/vAjnOYXZ.css.map`
+  const cssFont = `${outputFolder}/output-subfolder/__tests__/fixtures/static/dRqwXHnd.woff`
 
   const options = {
     folder: "static"
@@ -110,12 +110,12 @@ test("Assets written to subfolder", async () => {
 test("Outside Asset Source Location", async () => {
   const outputFile = `${outputFolder}/sources-outside/index.js`
 
-  const imageFile = `${outputFolder}/sources-outside/bAFTozQS.png`
-  const fontFile = `${outputFolder}/sources-outside/cVoexIsj.woff`
-  const deepFile = `${outputFolder}/sources-outside/ceBqZEDY.gif`
-  const cssFile = `${outputFolder}/sources-outside/vAjnOYXZ.css`
-  const cssFileMap = `${outputFolder}/sources-outside/vAjnOYXZ.css.map`
-  const cssFont = `${outputFolder}/sources-outside/dRqwXHnd.woff`
+  const imageFile = `${outputFolder}/sources-outside/__tests__/fixtures/deep/bAFTozQS.png`
+  const fontFile = `${outputFolder}/sources-outside/__tests__/fixtures/deep/cVoexIsj.woff`
+  const deepFile = `${outputFolder}/sources-outside/__tests__/fixtures/deep/ceBqZEDY.gif`
+  const cssFile = `${outputFolder}/sources-outside/__tests__/fixtures/deep/vAjnOYXZ.css`
+  const cssFileMap = `${outputFolder}/sources-outside/__tests__/fixtures/deep/vAjnOYXZ.css.map`
+  const cssFont = `${outputFolder}/sources-outside/__tests__/fixtures/deep/dRqwXHnd.woff`
 
   await bundle("./__tests__/fixtures/deep/assets-outside.js", outputFile)
 
@@ -144,8 +144,8 @@ test("Outside Asset Source Location", async () => {
 
 test("Asset source location when importer is deep", async () => {
   const outputFile = `${outputFolder}/importer-within/index.js`
-  const imageFile = `${outputFolder}/importer-within/ceBqZEDY.gif`
-  const imageFileImport = `import blankUrl from './ceBqZEDY.gif'`
+  const imageFile = `${outputFolder}/importer-within/__tests__/fixtures/deep/ceBqZEDY.gif`
+  const imageFileImport = `import blankUrl from './__tests__/fixtures/deep/ceBqZEDY.gif'`
 
   await bundle("./__tests__/fixtures/deep/assets-importer-within.js", outputFile)
 
@@ -162,12 +162,12 @@ test("Asset source location when importer is deep", async () => {
 test("Mixed Asset Source Locations", async () => {
   const outputFile = `${outputFolder}/sources-mixed/index.js`
 
-  const fontFile = `${outputFolder}/sources-mixed/cVoexIsj.woff`
-  const svgFile = `${outputFolder}/sources-mixed/foixBwnR.svg`
-  const deepFile = `${outputFolder}/sources-mixed/ceBqZEDY.gif`
-  const cssFile = `${outputFolder}/sources-mixed/vAjnOYXZ.css`
-  const cssFileMap = `${outputFolder}/sources-mixed/vAjnOYXZ.css.map`
-  const cssFont = `${outputFolder}/sources-mixed/dRqwXHnd.woff`
+  const fontFile = `${outputFolder}/sources-mixed/__tests__/fixtures/deep/cVoexIsj.woff`
+  const svgFile = `${outputFolder}/sources-mixed/__tests__/fixtures/deep/foixBwnR.svg`
+  const deepFile = `${outputFolder}/sources-mixed/__tests__/fixtures/deep/ceBqZEDY.gif`
+  const cssFile = `${outputFolder}/sources-mixed/__tests__/fixtures/deep/vAjnOYXZ.css`
+  const cssFileMap = `${outputFolder}/sources-mixed/__tests__/fixtures/deep/vAjnOYXZ.css.map`
+  const cssFont = `${outputFolder}/sources-mixed/__tests__/fixtures/deep/dRqwXHnd.woff`
 
   await bundle("./__tests__/fixtures/deep/assets-mixed.js", outputFile)
 
@@ -197,12 +197,12 @@ test("Mixed Asset Source Locations", async () => {
 test("Keep Name", async () => {
   const outputFile = `${outputFolder}/keep-name/index.js`
 
-  const imageFile = `${outputFolder}/keep-name/image_bAFTozQS.png`
-  const fontFile = `${outputFolder}/keep-name/SourceSerifPro-Bold.ttf_cVoexIsj.woff`
-  const deepFile = `${outputFolder}/keep-name/blank_ceBqZEDY.gif`
-  const cssFile = `${outputFolder}/keep-name/css-font_vAjnOYXZ.css`
-  const cssFileMap = `${outputFolder}/keep-name/css-font_vAjnOYXZ.css.map`
-  const cssFont = `${outputFolder}/keep-name/SourceSerifPro-Light.ttf_dRqwXHnd.woff`
+  const imageFile = `${outputFolder}/keep-name/__tests__/fixtures/image_bAFTozQS.png`
+  const fontFile = `${outputFolder}/keep-name/__tests__/fixtures/SourceSerifPro-Bold.ttf_cVoexIsj.woff`
+  const deepFile = `${outputFolder}/keep-name/__tests__/fixtures/blank_ceBqZEDY.gif`
+  const cssFile = `${outputFolder}/keep-name/__tests__/fixtures/css-font_vAjnOYXZ.css`
+  const cssFileMap = `${outputFolder}/keep-name/__tests__/fixtures/css-font_vAjnOYXZ.css.map`
+  const cssFont = `${outputFolder}/keep-name/__tests__/fixtures/SourceSerifPro-Light.ttf_dRqwXHnd.woff`
 
   await bundle("./__tests__/fixtures/assets.js", outputFile, {
     keepName: true

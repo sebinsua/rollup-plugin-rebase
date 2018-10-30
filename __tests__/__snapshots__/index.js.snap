@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Assets 1`] = `
-"import font from './cVoexIsj.woff';
-import image from './bAFTozQS.png';
-import deep from './ceBqZEDY.gif';
-import style from './vAjnOYXZ.css';
+"import font from './__tests__/fixtures/cVoexIsj.woff';
+import image from './__tests__/fixtures/bAFTozQS.png';
+import deep from './__tests__/fixtures/ceBqZEDY.gif';
+import style from './__tests__/fixtures/vAjnOYXZ.css';
 
 var assets = \`\${font}|\${image}|\${deep}|\${style}\`;
 
@@ -13,10 +13,10 @@ export default assets;
 `;
 
 exports[`Assets written to subfolder 1`] = `
-"import font from './static/cVoexIsj.woff';
-import image from './static/bAFTozQS.png';
-import deep from './static/ceBqZEDY.gif';
-import style from './static/vAjnOYXZ.css';
+"import font from './static/__tests__/fixtures/static/cVoexIsj.woff';
+import image from './static/__tests__/fixtures/static/bAFTozQS.png';
+import deep from './static/__tests__/fixtures/static/ceBqZEDY.gif';
+import style from './static/__tests__/fixtures/static/vAjnOYXZ.css';
 
 var assets = \`\${font}|\${image}|\${deep}|\${style}\`;
 
@@ -25,10 +25,10 @@ export default assets;
 `;
 
 exports[`Keep Name 1`] = `
-"import font from './SourceSerifPro-Bold.ttf_cVoexIsj.woff';
-import image from './image_bAFTozQS.png';
-import deep from './blank_ceBqZEDY.gif';
-import style from './css-font_vAjnOYXZ.css';
+"import font from './__tests__/fixtures/SourceSerifPro-Bold.ttf_cVoexIsj.woff';
+import image from './__tests__/fixtures/image_bAFTozQS.png';
+import deep from './__tests__/fixtures/blank_ceBqZEDY.gif';
+import style from './__tests__/fixtures/css-font_vAjnOYXZ.css';
 
 var assets = \`\${font}|\${image}|\${deep}|\${style}\`;
 
@@ -37,10 +37,10 @@ export default assets;
 `;
 
 exports[`Mixed Asset Source Locations 1`] = `
-"import font from './cVoexIsj.woff';
-import svg from './foixBwnR.svg';
-import deep from './ceBqZEDY.gif';
-import style from './vAjnOYXZ.css';
+"import font from './__tests__/fixtures/deep/cVoexIsj.woff';
+import svg from './__tests__/fixtures/deep/foixBwnR.svg';
+import deep from './__tests__/fixtures/deep/ceBqZEDY.gif';
+import style from './__tests__/fixtures/deep/vAjnOYXZ.css';
 
 /* eslint-disable filenames/match-regex */
 
@@ -51,10 +51,10 @@ export default assetsMixed;
 `;
 
 exports[`Outside Asset Source Location 1`] = `
-"import font from './cVoexIsj.woff';
-import image from './bAFTozQS.png';
-import deep from './ceBqZEDY.gif';
-import style from './vAjnOYXZ.css';
+"import font from './__tests__/fixtures/deep/cVoexIsj.woff';
+import image from './__tests__/fixtures/deep/bAFTozQS.png';
+import deep from './__tests__/fixtures/deep/ceBqZEDY.gif';
+import style from './__tests__/fixtures/deep/vAjnOYXZ.css';
 
 /* eslint-disable filenames/match-regex */
 
